@@ -1,0 +1,5 @@
+# Change the logical operators in order to print True
+
+
+name = "false"
+name.endswith("e")

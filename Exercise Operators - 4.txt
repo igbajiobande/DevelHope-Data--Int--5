@@ -1,0 +1,7 @@
+# Insert the appropriate logical operator in order to print True.Insert the appropriate logical operator in order to print True.
+
+
+SOLUTION:-
+a = "testing" == "testing" 
+b = "Mario" == "Cool Guy"
+print(not (a and b))

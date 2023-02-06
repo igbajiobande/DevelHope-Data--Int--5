@@ -1,0 +1,12 @@
+Create two variables called name and age. Then create a variable called hello and print the name and the age.
+Use the formatted string literal.
+
+
+
+
+SOLUTION:-
+
+name = 'John Doe'
+age = '40'
+hello = name + " " +age
+print(f"your name is {name}, you're {age} years old. {hello}:")

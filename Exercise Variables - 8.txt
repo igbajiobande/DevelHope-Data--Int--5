@@ -1,0 +1,9 @@
+Create 3 different variables and assign 3 different values. Write only one operation. 
+
+Print them on terminal
+
+
+name = "Barnabas"
+surname = "Obandde"
+age = "16"
+print(f"your name is {name} and your surname is {surname}, you're {age}years old")

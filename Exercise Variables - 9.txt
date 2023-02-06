@@ -1,0 +1,11 @@
+# Swap the value of the variables
+
+
+name = "Barnabas"
+surname = "Obandde"
+
+a = name
+b = surname
+c = a +" " + b
+
+print(c)

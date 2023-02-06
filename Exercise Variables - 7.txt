@@ -1,0 +1,2 @@
+Greetings = "Hello, I'm Mario!"
+print("Hello, I'm Mario!")

@@ -1,0 +1,8 @@
+# Check if "Nike" is in brands array using the appropriate logical operator
+
+SOLUTION:-
+
+
+brands = ["Adidas", "Nike"]
+if "Nike" in brands:
+    print("Nike")

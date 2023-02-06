@@ -1,0 +1,12 @@
+import random
+
+number1 = random.randint(1,100)
+number2 = random.randint(1,100)
+
+# Compare the numbers to eachother and write X greater than Y 
+if number1 < number2:
+    print(f"{number1} x is less than {number2} y")
+elif number1 > number2:
+    print(f"({number1}) x is greater than ({number2}) y")
+else:
+    print(f"{number1} x is equal to {number2} y")

@@ -1,0 +1,25 @@
+Exercise - Functions
+Import random function
+Create a function random_list_summer creates n elemented list with min value = -100 max value = 100 
+it has to print the list first and sum all the elements of it default element number is 15
+
+Don't forget to call the function
+for some features and functions you might have to search on the internet do it don't lose your courage
+
+
+
+
+Solution : 
+import random
+def random_list_summer():
+    rand_list = []
+    n = 100
+    for i in range(n):
+        rand_list.append(random.randint(-100, 100))
+        sum_ = sum(rand_list)
+    print(sum_)
+    print(rand_list)
+
+
+
+print(random_list_summer())

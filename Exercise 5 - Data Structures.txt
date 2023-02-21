@@ -1,0 +1,110 @@
+# Remember list,set,dictionary are mutable and tuple is immutable list,tuple elements can be reached by index
+# for dictionary it is not an option to reach by index the element key has to be known to reach
+# and for set the items cannot be reached directly but it is possible to iterate.
+
+# print the lengths of list1,tuple1,set1,dict1
+# print the first element of list1 and tuple1
+# print the value of lion key of dict1
+# change the 2nd position element of list1 to "rabbit"
+# try to change the 2nd position element of the tuple to "rabbit" and explain what happened.
+# add "monkey" to list1
+# remove "rabbit" from list1
+# in dict1 the number of feet is written as value to each animal the fixh has wrong value just fix it.
+
+
+
+
+
+
+list1 = ["lion", "monkey", "dog","fish"]
+tuple1 = ("lion", "monkey", "dog","fish")
+set1 = {"lion", "monkey", "dog","fish"}
+dict1 = {"lion":4, "monkey":2, "dog":4,"fish":2}
+
+
+
+
+
+
+SOLUTION:-
+
+# print the lengths of list1
+
+len(list1)
+
+
+
+# print the lengths of tuple1
+
+len(tuple1)
+
+
+
+# print the lengths of set1
+
+len(set1)
+
+
+
+# print the lengths of dict1
+
+len(dict1)
+
+
+
+# print the first element of list1
+
+list1[0]
+
+
+
+
+# print the first element of tuple1
+
+tuple1[0]
+
+
+
+# print the value of lion key of dict1
+
+list(dict1.keys())[0]
+
+
+
+# change the 2nd position element of list1 to "rabbit"
+
+list1[1] = "rabbit"
+
+
+
+
+# try to change the 2nd position element of the tuple to "rabbit" and explain what happened.
+
+tuple1[1] = "rabbit" 
+
+#  --- Notebook:- Tupples are immutable
+
+
+
+
+
+# add "monkey" to list1
+
+list1.append("monkey")
+print(list1)
+
+
+
+
+# remove "rabbit" from list1
+
+list1.remove("rabbit")
+
+
+
+
+
+# in dict1 the number of feet is written as value to each animal the fish has wrong value just fix it.
+
+
+list(dict1.values())[3] = {"fish":1}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Barnabas Obande/Downloads/northwind (6).db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="6188"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,29:mainAlphabetical list of products"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">--task for this week is : 
+--1- Calculating the sales amount for the company 2016 2017-2018 using order and order details tables 
+--2- Separate the sales amounts for 3 categories low-medium-high 
+--  team leader will decide the threshold of each category according to the Normal distribution of the sales
+--team leader: onur
+
+--thresholds are set as constant. Mean value of all 3 years is calculated as 10,586.00
+-- -35% +35% is set to be &quot;Medium&quot;, below 35% is set to be low, and higher 35% is set to be high.
+-- &lt;6500 is &quot;Low&quot;, &gt;14300 is &quot;High&quot;
+
+-- All years are calculated in one table. if needed WHERE comment @ line 24 can be uncommented
+
+--Getting annual sales amounts
+SELECT strftime('%Y', o.OrderDate) as 'Year', 
+       Round(Sum(od.UnitPrice*od.Quantity*(1-od.Discount)),0) as 'Sales Amount' 
+FROM Orders o
+JOIN &quot;Order Details&quot; od ON o.OrderID=od.OrderID
+GROUP BY strftime('%Y', o.OrderDate)
+ORDER BY strftime('%Y', o.OrderDate);
+
+
+
+-- All years are calculated in one table. if needed WHERE comment @ line 24 can be uncommented
+with country_category AS (SELECT strftime('%Y', o.OrderDate) as 'Year',Sum( od.UnitPrice*od.Quantity*(1-od.Discount)) as 'Sales Amount',c.Country as &quot;Country&quot;, 
+					       CASE when Sum(od.UnitPrice*od.Quantity*(1-od.Discount)) &lt; 6500 then &quot;Low&quot;
+					       		when Sum(od.UnitPrice*od.Quantity*(1-od.Discount)) &gt;= 6500 AND Sum(od.UnitPrice*od.Quantity*(1-od.Discount)) &lt; 14300 THEN &quot;Medium&quot;
+					       		else &quot;High&quot;
+					       end  as &quot;Category&quot;
+					       FROM Orders o
+					       		JOIN &quot;Order Details&quot; od ON o.OrderID=od.OrderID
+								JOIN Customers c On o.CustomerID =c.CustomerID
+							Group BY STRFTIME(strftime('%Y', o.OrderDate)), c.Country)
+SELECT cc.'Year', round(SUM(cc.&quot;Sales Amount&quot;),0) as &quot;Category Sum&quot;, cc.&quot;Category&quot; ||&quot; (&quot;|| GROUP_Concat(DISTINCT cc.&quot;Country&quot;)||&quot;)&quot; as &quot;Country Category&quot;
+FROM country_category cc
+--WHERE cc.'Year'='2016'
+Group by cc.'Year',cc.&quot;Category&quot;;</sql><current_tab id="0"/></tab_sql></sqlb_project>
